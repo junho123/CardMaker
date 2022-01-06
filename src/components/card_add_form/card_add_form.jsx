@@ -13,9 +13,10 @@ const CardAddForm = ({ onAdd }) => {
   const messageRef = useRef();
 
   const onSubmit = (event) => {
+    console.log(event);
     event.preventDefault();
     const card = {
-      id: Date.now(),
+      id: Date.now(), //uuid
       name: nameRef.current.value || "",
       company: companyRef.current.value || "",
       theme: themeRef.current.value,
@@ -28,7 +29,6 @@ const CardAddForm = ({ onAdd }) => {
     formRef.current.reset();
     onAdd(card);
   };
-
   return (
     <form ref={formRef} className={styles.form}>
       <input
